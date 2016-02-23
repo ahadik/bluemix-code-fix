@@ -1,16 +1,18 @@
 {
-  "name": "Page Redder",
-  "description": "Make the current page red",
-  "version": "2.0",
+  "name": "Snapshot Notifier",
+  "description": "Add Snapshots Notification functionality",
+  "version": "0.1",
+  "content_scripts": [{
+    "matches": ["http://*/*", "https://*/*"],
+    "js": ["content_script.js"],
+    "css" : ["style.css"],
+    "all_frames": true
+  }],
   "permissions": [
     "activeTab"
   ],
-  "background": {
-    "scripts": ["extensions.js"],
-    "persistent": false
-  },
   "browser_action": {
-    "default_title": "Make this page red"
+    "default_title": "Add Snapshots Notification functionality"
   },
   "manifest_version": 2
 }
