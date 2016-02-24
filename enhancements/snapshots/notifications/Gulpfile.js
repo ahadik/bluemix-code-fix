@@ -32,12 +32,6 @@ var dirs = {
       '!src/js/**/*.min.js'
     ]
   },
-  'server': {
-    'main': 'index.js',
-    'watch': [
-      'index.js'
-    ]
-  },
   'sass': 'src/sass/**/*.scss',
   'images': 'src/images/**/*.*',
   'public': 'public/',
