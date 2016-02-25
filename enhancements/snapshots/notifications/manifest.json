@@ -3,9 +3,9 @@
   "description": "Add Snapshots Notification functionality",
   "version": "0.1",
   "content_scripts": [{
-    "matches": ["http://*/*", "https://*/*"],
-    "js": ["content_script.js"],
-    "css" : ["style.css"],
+    "matches": ["https://blockstorage.eu-gb.bluemix.net/*"],
+    "js": ["public/js/content_script.js"],
+    "css" : ["public/css/style.css"],
     "all_frames": true
   }],
   "permissions": [

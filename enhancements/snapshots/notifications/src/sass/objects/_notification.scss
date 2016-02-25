@@ -1,0 +1,55 @@
+%alert{
+	.alertWrapper &{
+		position: relative;
+		width: 100%;
+		background-color: white;
+		margin-top: 15px;
+		border-width: 1px;
+		border-style: solid;
+		border-radius: 0;
+		padding: 15px;
+		padding-top: 0;
+		text-align: left;
+		vertical-align: bottom;
+
+		&::before{
+			content: " '";
+			display: inline-block;
+			position: relative;
+			top: 9px;
+			left: 10px;
+			height: 32px;
+			width: 32px;
+ 	 	 	margin: 4px 1em 0 0;
+			z-index: 1;
+		}
+
+		strong{
+			color: #231f20;
+		}
+	}
+}
+
+.alert-danger{
+	@extend %alert;
+	border-color: color('red', 40);
+	&::before{
+		background: url('http://style.stage1.mybluemix.net/images/icons/alert.svg');
+	}
+}
+
+.alert-info{
+	@extend %alert;
+	border-color: color('blue', 40);
+	&::before{
+		background: url('http://style.stage1.mybluemix.net/images/icons/info.svg');
+	}
+}
+
+.alert-success{
+	@extend %alert;
+	border-color: color('green', 60);
+	&::before{
+		background: url('http://style.stage1.mybluemix.net/images/icons/success.svg');
+	}
+}

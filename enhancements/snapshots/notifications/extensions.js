@@ -7,5 +7,8 @@
 
 chrome.browserAction.onClicked.addListener(function(tab) {
   // No tabs or host permissions needed!
-  chrome.tabs.executeScript(null, {file: "content_script.js"});
+  chrome.tabs.executeScript(null, {file: "public/js/content_script.js"});
+  chrome.tabs.insertCSS(null, 'public/css/style.css', function(){
+  	console.log("css has been injected");
+  });
 });

@@ -13,9 +13,7 @@ var gulp = require('gulp'),
     autoprefixer = require('gulp-autoprefixer'),
     sasslint = require('gulp-sass-lint'),
     imagemin = require('gulp-imagemin'),
-    cfenv = require('cfenv'),
-    gulpif = require('gulp-if'),
-    browserSync = require('browser-sync');
+    gulpif = require('gulp-if');
 
 //////////////////////////////
 // Variables
@@ -41,11 +39,6 @@ var dirs = {
 var isCI = (typeof process.env.CI === 'undefined') ? process.env.CI : false;
 
 //////////////////////////////
-// Update BrowserSync
-//////////////////////////////
-browserSync = browserSync.create();
-
-//////////////////////////////
 // JavaScript Lint Tasks
 //////////////////////////////
 gulp.task('eslint', function () {
@@ -62,8 +55,7 @@ gulp.task('uglify', function () {
         'mangle': isCI ? true : false
       }))
     .pipe(gulpif(!isCI, sourcemaps.write('maps')))
-    .pipe(gulp.dest(dirs.public + 'js'))
-    .pipe(browserSync.stream());
+    .pipe(gulp.dest(dirs.public + 'js'));
 });
 
 gulp.task('eslint:watch', function () {
@@ -79,8 +71,7 @@ gulp.task('uglify:watch', function () {
 //////////////////////////////
 gulp.task('html', function() {
   gulp.src(dirs.html)
-    .pipe(gulp.dest(dirs.public))
-    .pipe(browserSync.stream());
+    .pipe(gulp.dest(dirs.public));
 })
 
 gulp.task('html:watch', function () {
@@ -108,8 +99,7 @@ gulp.task('sass', function () {
       }))
       .pipe(autoprefixer())
     .pipe(gulpif(!isCI, sourcemaps.write('maps')))
-    .pipe(gulp.dest(dirs.public + 'css'))
-    .pipe(browserSync.stream());
+    .pipe(gulp.dest(dirs.public + 'css'));
 });
 
 gulp.task('sass:watch', function () {
@@ -134,37 +124,6 @@ gulp.task('images:watch', function () {
   gulp.watch(dirs.images, ['images']);
 });
 
-//////////////////////////////
-// Nodemon Task
-//////////////////////////////
-gulp.task('nodemon', function (cb) {
-  nodemon({
-    'script': dirs.server.main,
-    'watch': dirs.server.watch,
-    'env': {
-      'NODE_ENV': 'development'
-    }
-  })
-  .once('start', function () {
-    cb();
-  })
-  .on('restart', function () {
-    // console.log('Restarted');
-  });
-});
-
-//////////////////////////////
-// Browser Sync Task
-//////////////////////////////
-gulp.task('browser-sync', ['nodemon'], function () {
-  var appEnv = cfenv.getAppEnv();
-  appEnv.url = 'https://localhost:3000/index';
-  browserSync.init({
-	port: 8000,
-	https: true,
-    'proxy': appEnv.url
-  });
-});
 
 //////////////////////////////
 // Running Tasks
@@ -175,4 +134,4 @@ gulp.task('test', ['build']);
 
 gulp.task('watch', ['eslint:watch', 'uglify:watch', 'html:watch', 'sass:watch', 'images:watch']);
 
-gulp.task('default', ['browser-sync', 'build', 'watch']);
+gulp.task('default', ['build', 'watch']);
