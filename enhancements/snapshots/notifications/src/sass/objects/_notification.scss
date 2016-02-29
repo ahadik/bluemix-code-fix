@@ -5,15 +5,26 @@
 		background-color: white;
 		margin-top: 15px;
 		border-width: 1px;
+		line-height: 38px;
 		border-style: solid;
 		border-radius: 0;
 		padding: 15px;
 		padding-top: 0;
 		text-align: left;
-		vertical-align: bottom;
+		vertical-align: bottom !important;
+		font-size: 16px;
+		color: color('gray', 80);
+		overflow: hidden;
+		transition: opacity .5s;
+		animation: fadein .5s;
+
+		&.remove{
+			animation: fadeout .5s;
+		}
+
 
 		&::before{
-			content: " '";
+			content: "";
 			display: inline-block;
 			position: relative;
 			top: 9px;
@@ -24,17 +35,46 @@
 			z-index: 1;
 		}
 
-		strong{
-			color: #231f20;
+		& *{
+			vertical-align: bottom;
+		}
+
+		button.close{
+			font-size: 28px;
+			font-weight: 400;
+			color: color('gray', 70);
+			font-family: 'Helvetica Neue', Helvetica, sans-serif;
+		}
+
+		span{
+			padding-left: 1em;
+			strong{
+				color: #231f20;
+				padding-right: 12px;
+			}
 		}
 	}
 }
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes fadeout {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
 
 .alert-danger{
 	@extend %alert;
 	border-color: color('red', 40);
 	&::before{
 		background: url('http://style.stage1.mybluemix.net/images/icons/alert.svg');
+	}
+	strong{
+		content: "Uh oh!";
 	}
 }
 
@@ -44,6 +84,9 @@
 	&::before{
 		background: url('http://style.stage1.mybluemix.net/images/icons/info.svg');
 	}
+	strong{
+		content: "Heads up!";
+	}
 }
 
 .alert-success{
@@ -51,5 +94,8 @@
 	border-color: color('green', 60);
 	&::before{
 		background: url('http://style.stage1.mybluemix.net/images/icons/success.svg');
+	}
+	strong{
+		content: "Way to go!";
 	}
 }
