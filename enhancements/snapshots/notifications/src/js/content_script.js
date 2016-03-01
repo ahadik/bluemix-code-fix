@@ -10,18 +10,23 @@ var success = [];
 
 
 function createSingleInfoContent(volName){
-	return 'Your snapshot for Volume \''+volName+'\' is being created! You can find it in the Snapshots tab when it\'s complete.';
+	return ['Your snapshot for Volume \''+volName+'\' is being created! You can find it in the ','Snapshots tab', ' when it\'s complete.'];
 }
 
 function createMultiInfoContent(numSnapshots){
-	return content = 'Your snapshots ('+numSnapshots+') are being created! You can find them in the Snapshots tab when they\'re complete.';
+	return content = ['Your snapshots ('+numSnapshots+') are being created! You can find them in the ','Snapshots tab',' when they\'re complete.'];
 }
 
 function appendAlertContent(alert, content){
 	var strong = document.createElement('strong');
 	var contentSpan = document.createElement('span');
 	contentSpan.appendChild(strong);
-	contentSpan.appendChild(document.createTextNode(content));
+	contentSpan.appendChild(document.createTextNode(content[0]));
+	var link = document.createElement('a');
+	link.setAttribute('href', '#snapshots-tab');
+	link.appendChild(document.createTextNode(content[1]));
+	contentSpan.appendChild(link);
+	contentSpan.appendChild(document.createTextNode(content[2]));
 	alert.appendChild(contentSpan);
 	return alert;
 }
@@ -38,8 +43,8 @@ function createAlert(alertContent, type){
 	xSpan.setAttribute('aria-hidden', 'true');
 	xSpan.appendChild(document.createTextNode('x'));
 	closeButton.appendChild(xSpan);
-	alert.appendChild(closeButton);
 	alert = appendAlertContent(alert, alertContent);
+	alert.appendChild(closeButton);
 	return alert;
 }
 

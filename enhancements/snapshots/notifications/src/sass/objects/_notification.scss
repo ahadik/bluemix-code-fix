@@ -1,14 +1,15 @@
 %alert{
+	display: flex;
 	.alertWrapper &{
 		position: relative;
 		width: 100%;
 		background-color: white;
-		margin-top: 15px;
+		margin-top: 16px;
 		border-width: 1px;
 		line-height: 38px;
 		border-style: solid;
 		border-radius: 0;
-		padding: 15px;
+		padding: 16px;
 		padding-top: 0;
 		text-align: left;
 		vertical-align: bottom !important;
@@ -27,11 +28,9 @@
 			content: "";
 			display: inline-block;
 			position: relative;
-			top: 9px;
-			left: 10px;
-			height: 32px;
-			width: 32px;
- 	 	 	margin: 4px 1em 0 0;
+			height: 24px;
+			flex: 0 0 24px;
+ 	 	 	margin: 16px 0 0 0;
 			z-index: 1;
 		}
 
@@ -48,6 +47,8 @@
 
 		span{
 			padding-left: 1em;
+			line-height: 20px;
+			margin-top: 16px;
 			strong{
 				color: #231f20;
 				padding-right: 12px;
@@ -74,7 +75,9 @@
 		background: url('http://style.stage1.mybluemix.net/images/icons/alert.svg');
 	}
 	strong{
-		content: "Uh oh!";
+		&::before{
+			content: "Uh oh!";
+		}
 	}
 }
 
@@ -85,7 +88,9 @@
 		background: url('http://style.stage1.mybluemix.net/images/icons/info.svg');
 	}
 	strong{
-		content: "Heads up!";
+		&::before{
+			content: "Heads up!";
+		}
 	}
 }
 
@@ -96,6 +101,8 @@
 		background: url('http://style.stage1.mybluemix.net/images/icons/success.svg');
 	}
 	strong{
-		content: "Way to go!";
+		&::before{
+			content: "Way to go!";
+		}
 	}
 }

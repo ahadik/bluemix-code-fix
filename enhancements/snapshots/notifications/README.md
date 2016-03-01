@@ -24,7 +24,7 @@ With NPM installed, the remainder of the depencies can be installed with NPM usi
 
 After NPM installation has completed, run the `gulp` command to compile the source code from `/src` to `/public`. If the `gulp` command is not found, install it using the command `npm install -g gulp`. This installs it globally.
 
-The `gulp` command compiles all code from `src/` to the `public/` directory. If you want to load your modifications into Chrome, you can load and "Unpacked Extension". This will draw from the `public/` folder. If you leave Gulp running, it will watch for changes in any file and immediately compile them into the `public/` folder at save time. The `public/` folder will not be present until Gulp is run at least once.
+The `gulp` command compiles all code from `src/` to the `public/` directory. If you want to load your modifications into Chrome, you can "Load an Unpacked Extension". This will draw from the `public/` folder. If you leave Gulp running, it will watch for changes in any file and immediately compile them into the `public/` folder at save time. The `public/` folder will not be present until Gulp is run at least once.
 
 ###Making Modifications
 The notification extension is built entirely from CSS and JS injection. The Chrome Extension injects compiled CSS/JS into the live Bluemix page, enabling the notifications feature. If you want to make changes to the Notifications, you can modify either the JS or CSS source from the `src/` directory. Take note that the source CSS is written in SASS and compiled at save time into CSS by Gulp. Here's a list of files you might want to take note of:
