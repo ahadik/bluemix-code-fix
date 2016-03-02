@@ -39,10 +39,12 @@
 		}
 
 		button.close{
-			font-size: 28px;
-			font-weight: 400;
-			color: color('gray', 70);
-			font-family: 'Helvetica Neue', Helvetica, sans-serif;
+			width: 13px;
+			height: 13px;
+			background-size: 13px 13px;
+			background-repeat: no-repeat;
+			background-position: center center;
+			margin-top: 16px;
 		}
 
 		span{
@@ -51,7 +53,10 @@
 			margin-top: 16px;
 			strong{
 				color: #231f20;
-				padding-right: 12px;
+				padding-right: 6px;
+			}
+			a{
+				text-decoration: underline;
 			}
 		}
 	}

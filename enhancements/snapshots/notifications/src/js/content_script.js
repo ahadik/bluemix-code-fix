@@ -39,10 +39,12 @@ function createAlert(alertContent, type){
 	var closeButton = document.createElement('button');
 	closeButton.classList.add('close');
 
-	var xSpan = document.createElement('span');
-	xSpan.setAttribute('aria-hidden', 'true');
-	xSpan.appendChild(document.createTextNode('x'));
-	closeButton.appendChild(xSpan);
+	//var xSpan = document.createElement('span');
+	//xSpan.setAttribute('aria-hidden', 'true');
+	//xSpan.appendChild(document.createTextNode('x'));
+	var imgURL = chrome.extension.getURL("public/images/x.svg");
+	closeButton.setAttribute('style', 'background : url('+imgURL+');');
+	//closeButton.appendChild(xSpan);
 	alert = appendAlertContent(alert, alertContent);
 	alert.appendChild(closeButton);
 	return alert;
@@ -116,9 +118,11 @@ function handleSnapshotCreation(){
 					content = createSingleInfoContent(selectedSnapshotName);
 				}
 				var alertObj = addAlert(content, type);
+				/*
 				setTimeout(function(){
 					alertObj.dismiss();
 				}, 20000);
+*/
 			},500);
 		});
 	}
