@@ -5,9 +5,9 @@
 Source code is found in the `/src` directory. Gulp is used to compile the source code into public facing code.
 
 ###Use
-This Chrome Plugin injects the proper styling into BlueMix documentation so that `code` blocks and `console` blocks show up as monospace fonts.Included in this repository is the Chrome Extension Package for the most recent build of the plugin. This is the `code_fix.crx` plugin located in the root directory.
+This Chrome Plugin injects the proper styling into BlueMix documentation so that `code` blocks and `console` blocks show up as monospace fonts.Included in this repository is the Chrome Extension Package for the most recent build of the plugin. This is the `code_fixer.crx` plugin located in the root directory.
 
-You can install this packaged extension in Google Chrome by going to `Preferences > Extensions` in Chrome, and then dragging and dropping the `code_fix.crx` file onto the Extensions page. This will create a small icon in your URL bar that looks like a puzzle piece. The extension has permissions to operate on Bluemix only. It will run automatically.
+You can install this packaged extension in Google Chrome by going to `Preferences > Extensions` in Chrome, and then dragging and dropping the `code_fixer.crx` file onto the Extensions page. This will create a small icon in your URL bar that looks like a puzzle piece. The extension has permissions to operate on Bluemix only. It will run automatically.
 
 ###Modifying
 You may be interested in the source code. The source code can all be found in the `src/` directory. However, if you wish to run a modified version of the plugin on your own browser, some installation and configuration is requred.
@@ -32,4 +32,4 @@ This extension is just a tiny CSS injection. The Chrome Extension injects compil
 ###Loading Modifications
 Once you've made modifications in the `src/` files, you must make sure they have been compiled into `public/`. Once again, this is handled with Gulp. So long as Gulp is running in a shell, any changes you make will be compiled. Check your terminal often to see that your changes are being compiled without error.
 
-You can "Load an Unpacked Extension" in Chrome from the Preferences > Extensions tab. At the top of the page, select "Load unpacked extensions". Select the `code_fix/` directory to load. This will create a new Extension in your Chrome extension list. If you make further modifications after you've loaded the extension once, take care to select "Reload (⌘R)" from the Extensions tab. This reloads changes from the `public/` directory.
+You can "Load an Unpacked Extension" in Chrome from the Preferences > Extensions tab. At the top of the page, select "Load unpacked extensions". Select the root directory of the respository to load. This will create a new Extension in your Chrome extension list. If you make further modifications after you've loaded the extension once, take care to select "Reload (⌘R)" from the Extensions tab. This reloads changes from the `public/` directory.
