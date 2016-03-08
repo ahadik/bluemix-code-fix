@@ -1,0 +1,20 @@
+{
+  "name": "BlueMix Code Fixer",
+  "description": "Add proper code styling to BlueMix",
+  "version": "0.1",
+  "content_scripts": [{
+    "matches": ["https://*.bluemix.net/*"],
+    "css" : ["public/css/style.css"],
+    "all_frames": true
+  }],
+  "permissions": [
+    "activeTab"
+  ],
+  "web_accessible_resources": [
+    "public/images/*.svg"
+    ],
+  "browser_action": {
+    "default_title": "Add proper code styling"
+  },
+  "manifest_version": 2
+}
